@@ -1,36 +1,48 @@
-# Webcam-Barcode-Scanner
+
+# Yolo-Barcode-Scanner
+
 Barcode detection with Deep Learning (YOLO) and decoding barcode using Pyzbar in Python
 
-Our barcode reader project currently uses YOLOv5 model. We plan to release notebooks with instructions on training YOLO models for barcode detection and reading for our upcoming models that we [release](https://github.com/Tyan-Ng/Webcam-Barcode-Scanner/releases/tag/Barcode-detection-models).
 
-🚀🚀🚀The study was a collaborative effort involving [Tyan-Ng](https://github.com/Tyan-Ng) and [TaThanh200320](https://github.com/TaThanh200320)
 
-<p align="center">
-<img src="https://github.com/Tyan-Ng/Webcam-Barcode-Scanner/blob/main/barcode_reader.png" width="500" height="394" />
-</p>
+## Requirements
+
+python version 3.8.10
+
+torch==2.3.1
+
+torchvision==0.18.1 
+
+Refer: https://github.com/pytorch/pytorch/issues/130659
+
 
 ## Installation
-Clone repo and install requirements.txt
+
+Make sure to fulfill above requirements before proceed with this step.
+
 ```bash
-git clone https://github.com/Tyan-Ng/Webcam-Barcode-Scanner
-cd Webcam-Barcode-Scanner
-pip install -r requirements.txt
+  https://github.com/rekaseng/Yolo-Barcode-Scanner.git
+  cd Yolo-Barcode-Scanner
+  pip install -r requirements.txt
 ```
 
-## Usage
+Note: If you faced warning issues with different torch version, uninstall the current torch versions and run the following commands:
+
 ```bash
-python barcode_reader.py
+  pip uninstall torch torchvision torchaudio -y
+  pip install torch==2.3.1 torchvision==0.18.1 torchaudio==2.3.1 --index-url https://download.pytorch.org/whl/cpu
 ```
 
-## Training
-**1. Data preparation**
+⚠ Make sure to use --index-url for specific GPU versions / CPU-only version.
 
-Download the images (train, val, test) and labels for our [BarcodeEpu2](https://doi.org/10.5281/zenodo.7465864) dataset
+If using a GPU (CUDA), visit the PyTorch installation page to get the correct version.
 
-Our dataset contains over 3000 barcode images that have been labeled in the YOLO format, making it easy to use for training and testing computer vision models that can detect and decode barcodes.
 
-**2. Train**
+## Installation of YoloV5
+Since this project relies on YOLOv5, install it separately:
 
-Our training is based on the YOLOv5 model (Check out our [notebook](https://github.com/Tyan-Ng/Webcam-Barcode-Scanner/blob/main/train.ipynb) to learn how to train a model)
-
-The barcode detection model was trained in several other versions of YOLO ([see](https://github.com/Tyan-Ng/Webcam-Barcode-Scanner/releases/tag/Barcode-detection-models))
+```bash
+  git clone https://github.com/ultralytics/yolov5.git
+  cd yolov5
+  pip install -r requirements.txt
+```
